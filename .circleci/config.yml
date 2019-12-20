@@ -1,105 +1,69 @@
-version: 2
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.2.0
 
 jobs:
-  test-3.7: &full-test-template
+  #
+  # linux
+  #
+
+  test-py38: &full-test-template
     docker:
-      - image: circleci/python:3.7-stretch
+      - image: circleci/python:3.8-buster
 
     working_directory: ~/repo/
-
-    environment:
-      # Note: SUM_REQ_FILE is hardcoded for save_cache and restore_cache. See dicussion on
-      # https://discuss.circleci.com/t/cannot-use-circle-yml-environment-variables-in-cache-keys/10994/20
-      SUM_REQ_FILE: temp_requirements_summary.txt
-      IGNORED_DIRS: envs|tests|circuit-fault-diagnosis|factoring|template
 
     steps:
       - checkout
 
-      # Restore cache
-      - run: &set-requirements-summary-template
-          name: Create requirements summary
-          command: |
-            shopt -s extglob
-
-            # Clear file contents if it exists
-            : > "$SUM_REQ_FILE"
-
-            # Concatenate demo requirements.txt files into a temp file
-            for demo in !($IGNORED_DIRS); do
-              if [ -d "$demo" ]; then
-                echo "$demo" >> "$SUM_REQ_FILE"
-                cat "$demo/requirements.txt" >> "$SUM_REQ_FILE"
-                echo >> "$SUM_REQ_FILE"
-              fi
-            done
       - restore_cache:
-          key: v2-dependencies-{{ checksum "temp_requirements_summary.txt" }}-{{ .Environment.CIRCLE_JOB }}
+          key: v1-dependencies-{{ checksum "requirements.txt" }}-{{ .Environment.CIRCLE_JOB }}
+      - run: python -m virtualenv env
       - run: &install-dependences-template
-          name: Install dependences
+          name: install requirements
           command: |
-            shopt -s extglob
-
-            # Looping through demos
-            for demo in !($IGNORED_DIRS); do
-              if [ -d "$demo" ]; then
-                (
-                  env="envs/$demo"
-                  python -m virtualenv "$env"
-                  . "$env/bin/activate"
-
-                  pip install -r "$demo/requirements.txt"
-                  pip install coverage
-                )
-              fi
-            done
+            env/bin/pip install -r ./requirements.txt
+            env/bin/pip install coverage
       - save_cache:
-          key: v1-dependencies-{{ checksum "temp_requirements_summary.txt" }}-{{ .Environment.CIRCLE_JOB }}
+          key: v1-dependencies-{{ checksum "requirements.txt" }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - envs
+            - env
 
-      - run: &run-tests-template
-          name: Run unit tests
-          command: |
-            shopt -s extglob
+      - run: env/bin/coverage run -m unittest discover
 
-            for demo in !($IGNORED_DIRS); do
-              if [ -d "$demo" ]; then
-                (
-                  env="envs/$demo"
-                  . "$env/bin/activate"
+  test-py37:
+    <<: *full-test-template
+    docker:
+      - image: circleci/python:3.7-stretch
 
-                  cd "$demo"
-                  coverage run -m unittest discover
-                )
-              fi
-            done
-
-  test-3.6:
+  test-py36:
     <<: *full-test-template
     docker:
       - image: circleci/python:3.6-jessie
 
-  test-3.5:
+  test-py35:
     <<: *full-test-template
     docker:
       - image: circleci/python:3.5-jessie
 
-  test-2.7:
+  test-py27:
     # Note: CircleCI's Python 2.7 environment already has virtualenv pre-installed.
     #   Hence, even though it's Python 2.7, `python -m virtualenv ..` works.
     <<: *full-test-template
     docker:
       - image: circleci/python:2.7-jessie
 
-  test-osx-3.7: &osx-tests-template
+  #
+  # macOS
+  #
+
+  test-osx-py38: &osx-tests-template
     macos:
-      xcode: "10.1.0"
+      xcode: "11.2.1"
     environment:
-      PYTHON: 3.7.0
+      PYTHON: 3.8.0
       HOMEBREW_NO_AUTO_UPDATE: 1
-      SUM_REQ_FILE: temp_requirements_summary.txt  # Note: hardcoded for save_cache and restore_cache
-      IGNORED_DIRS: envs|tests|circuit-fault-diagnosis|factoring|template
 
     working_directory: ~/repo
 
@@ -107,129 +71,216 @@ jobs:
       - checkout
 
       - run: brew install pyenv
+
+      # Install desired python version
       - restore_cache:
           keys:
-            - pyenv-{{ .Environment.CIRCLE_JOB }}
+            - pyenv-{{ .Environment.CIRCLE_JOB }}-xcode-11.2.1
       - run: pyenv install $PYTHON -s
       - save_cache:
-          key: pyenv-{{ .Environment.CIRCLE_JOB }}
+          key: pyenv-{{ .Environment.CIRCLE_JOB }}-xcode-11.2.1
           paths:
             - ~/.pyenv
 
-      - run:
-          name: Create virtualenv
+      # Set local python version
+      - run: 
+          name: create virtualenv
           command: |
             eval "$(pyenv init -)"
             pyenv local $PYTHON
             python -m pip install virtualenv
+            python -m virtualenv env
 
       # Restore cache
-      - run: *set-requirements-summary-template
       - restore_cache:
-          key: v1-dependencies-{{ checksum "temp_requirements_summary.txt" }}-{{ .Environment.CIRCLE_JOB }}
+          key: v1-dependencies-{{ checksum "requirements.txt" }}-{{ .Environment.CIRCLE_JOB }}
       - run: *install-dependences-template
       - save_cache:
-          key: v1-dependencies-{{ checksum "temp_requirements_summary.txt" }}-{{ .Environment.CIRCLE_JOB }}
+          key: v1-dependencies-{{ checksum "requirements.txt" }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - envs
+            - env
 
-      - run: *run-tests-template
+      - run: env/bin/coverage run -m unittest discover
 
-#      - run: *codecov-template
 
-  test-osx-3.6:
+  test-osx-py37:
+    <<: *osx-tests-template
+    environment:
+      PYTHON: 3.7.0
+      HOMEBREW_NO_AUTO_UPDATE: 1
+
+  test-osx-py36:
     <<: *osx-tests-template
     environment:
       PYTHON: 3.6.5
       HOMEBREW_NO_AUTO_UPDATE: 1
-      SUM_REQ_FILE: temp_requirements_summary.txt
-      IGNORED_DIRS: envs|tests|circuit-fault-diagnosis|factoring|template
 
-  test-osx-3.5:
+  test-osx-py35:
     <<: *osx-tests-template
     environment:
       PYTHON: 3.5.5
       HOMEBREW_NO_AUTO_UPDATE: 1
-      SUM_REQ_FILE: temp_requirements_summary.txt
-      IGNORED_DIRS: envs|tests|circuit-fault-diagnosis|factoring|template
+      BASH_ENV: /Users/distiller/repo/.circleci/.bashrc_macOS
 
-  test-osx-2.7:
+  test-osx-py27:
     <<: *osx-tests-template
     environment:
       PYTHON: 2.7.15
       HOMEBREW_NO_AUTO_UPDATE: 1
-      SUM_REQ_FILE: temp_requirements_summary.txt
-      IGNORED_DIRS: envs|tests|circuit-fault-diagnosis|factoring|template
+      BASH_ENV: /Users/distiller/repo/.circleci/.bashrc_macOS
 
+  #
+  # Windows x64
+  #
 
-  deploy:
-    docker:
-      - image: circleci/python:3.6-jessie
+  test-win-py38: &win-tests-template
+    executor:
+      name: win/default
+
+    environment:
+      PYTHON: 3.8.0
 
     working_directory: ~/repo
 
     steps:
       - checkout
 
+      # Install python
+      - restore_cache:
+          key: nuget-{{ .Environment.CIRCLE_JOB }}
       - run:
-          name: Install dependencies
+          name: install python
+          command: nuget install python -Version $env:PYTHON -ExcludeVersion -OutputDirectory .
+      - save_cache:
+          key: nuget-{{ .Environment.CIRCLE_JOB }}
+          paths:
+            - .\python
+
+      # Set up virtual environment
+      - run:
+          name: create virtualenv
           command: |
-            python -m virtualenv env
-            . env/bin/activate
+            .\python\tools\python.exe --version
+            .\python\tools\python.exe -m pip install virtualenv
+            .\python\tools\python.exe -m virtualenv env
+
+      # Install requirements
+      - restore_cache:
+          key: v1-dependencies-{{ checksum "requirements.txt" }}-{{ .Environment.CIRCLE_JOB }}
+      - run: &win-install-dependencies-template
+          name: install dependencies
+          command: |
+            env\Scripts\activate.ps1
+            python --version
             pip install -r requirements.txt
+            pip install coverage
+      - save_cache:
+          key: v1-dependencies-{{ checksum "requirements.txt" }}-{{ .Environment.CIRCLE_JOB }}
+          paths:
+            - env
 
-      - run:
-          name: Install twine
+      # Run tests
+      - run: &win-run-unittests-template
+          name: run unittests
           command: |
-            . env/bin/activate
-            pip install twine
+            env\Scripts\activate.ps1
+            coverage run -m unittest discover
 
+  test-win-py37:
+    <<: *win-tests-template
+    environment:
+      PYTHON: 3.7.5
+
+  test-win-py36:
+    <<: *win-tests-template
+    environment:
+      PYTHON: 3.6.8
+
+  test-win-py35:
+    <<: *win-tests-template
+    environment:
+      PYTHON: 3.5.4
+
+  #
+  # Windows x86
+  #
+
+  test-win-py38x86: &win-tests-template-x86
+    executor:
+      name: win/default
+
+    environment:
+      PYTHON: 3.8.0
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Install python
+      - restore_cache:
+          key: nuget-{{ .Environment.CIRCLE_JOB }}
       - run:
-          name: Verify version matches tag
-          command: |
-            . env/bin/activate
-            pip install .
-            echo $CIRCLE_TAG
-            [[ "$(pip show dwave-networkx 2>/dev/null | grep Version)" == "Version: $CIRCLE_TAG" ]]
+          name: install python
+          command: nuget install pythonx86 -Version $env:PYTHON -ExcludeVersion -OutputDirectory .
+      - save_cache:
+          key: nuget-{{ .Environment.CIRCLE_JOB }}
+          paths:
+            - .\python
 
+      # Set up virtual environment
       - run:
-          name: Initialize .pypirc
+          name: create virtualenv
           command: |
-            echo -e "[pypi]" >> ~/.pypirc
-            echo -e "username = $PYPI_USERNAME" >> ~/.pypirc
-            echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
+            .\pythonx86\tools\python.exe --version
+            .\pythonx86\tools\python.exe -m pip install virtualenv
+            .\pythonx86\tools\python.exe -m virtualenv env
 
-      - run:
-          name: Build sdist and bdist
-          command: |
-            . env/bin/activate
-            python setup.py sdist
-            python setup.py bdist_wheel
+      # Install requirements
+      - restore_cache:
+          key: v1-dependencies-{{ checksum "requirements.txt" }}-{{ .Environment.CIRCLE_JOB }}
+      - run: *win-install-dependencies-template
+      - save_cache:
+          key: v1-dependencies-{{ checksum "requirements.txt" }}-{{ .Environment.CIRCLE_JOB }}
+          paths:
+            - env
 
-      - run:
-          name: Upload
-          command: |
-            . env/bin/activate
-            twine upload dist/*
+      # Run tests
+      - run: *win-run-unittests-template
 
+  test-win-py37x86:
+    <<: *win-tests-template
+    environment:
+      PYTHON: 3.7.5
+
+  test-win-py36x86:
+    <<: *win-tests-template
+    environment:
+      PYTHON: 3.6.8
+
+  test-win-py35x86:
+    <<: *win-tests-template
+    environment:
+      PYTHON: 3.5.4
+
+
+# TODO: add Py3.8 in jobs once ortools (for penaltymodel-mip) supports Py3.8
 workflows:
-  version: 2
+  version: 2.1
   tests:
     jobs:
-      - test-3.7
-      - test-3.6
-      - test-3.5
-      - test-2.7
-      - test-osx-3.7
-      - test-osx-3.6
-      - test-osx-3.5
-      - test-osx-2.7
+      - test-py37
+      - test-py36
+      - test-py35
+      - test-py27
+      - test-osx-py37
+      - test-osx-py36
+      - test-osx-py35
+      - test-osx-py27
+      - test-win-py37
+      - test-win-py36
+      - test-win-py35
+      - test-win-py37x86
+      - test-win-py36x86
+      - test-win-py35x86
 
-  deploy:
-    jobs:
-      - deploy:
-          filters:
-            tags:
-              only: /^[0-9]+(\.[0-9]+)*(\.dev([0-9]+)?)?$/
-            branches:
-              ignore: /.*/
