@@ -19,3 +19,7 @@ Things to do:
  - Add demo code below
  - Format code so that it conforms with PEP 8
 """
+class TestIde():
+
+    def abc:
+        pass
