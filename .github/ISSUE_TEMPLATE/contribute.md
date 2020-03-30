@@ -5,17 +5,21 @@ about: Let us know you have an example you'd like to contribute
 ---
 
 **Description**
+
 A clear and concise description of the concepts in your project and the problem 
 your code solves. Please include any references you used. 
 
 **How to run the example**
+
 A short description of how to run your code, including an example. 
 
 **Link to your repo**
+
 Include a link to the repo you want to contribute to d-wave examples:
 https://github.com/dwave-examples
 
 **Method of contributing**
+
 There are two options for how to contribute your example:
 1. Forking  
     D-Wave will fork your repo. We may make a pull request to your repo if we would 
@@ -33,6 +37,7 @@ Please specify which method you prefer.
  - Ocean version: [e.g., 2.0]
 
 **Additional information**
+
 Add any other information.
 
 Before submitting, please take a look at our How To Contribute guide and ensure 
