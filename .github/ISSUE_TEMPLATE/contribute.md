@@ -15,24 +15,12 @@ A short description of how to run your code, including an example.
 
 **Link to your repo**
 
-Include a link to the repo you want to contribute to d-wave examples:
+Include a link to the repo you want to contribute to d-wave examples.
 
 https://github.com/dwave-examples
 
-**Method of contributing**
-
-There are two options for how to contribute your example:
-1. Forking  
-    D-Wave will fork your repo. We may make a pull request to your repo if we would 
-	like your approval for certain code changes.
-2. Transferring repo ownership
-    You may choose to transfer ownership of your repo to D-Wave. Here's more 
-	information on this option: 
-	
-	https://help.github.com/en/github/administering-a-repository/transferring-a-repository
-
-Please specify which method you prefer. 
-
+D-Wave will fork your repo. We may make a pull request to your repo if we would 
+like your approval for certain code changes.
 
 **Environment**
  - Python version: [e.g., 3.7.0]
