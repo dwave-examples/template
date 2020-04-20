@@ -1,5 +1,5 @@
-Interested in contributing a code example? Please make a new issue to this
-repo discussing your code example. We will have someone follow up with you!
+**Interested in contributing a code example?** Please let us know about your
+code example by making a new issue to this repository. Thanks!
 
 .. ..
 
