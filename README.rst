@@ -1,3 +1,12 @@
+Interested in contributing a code example? Please make a new issue to this
+repo discussing your code example. We will have someone follow up with you!
+
+.. ..
+
+  Before submitting your code, please delete the above code contribution
+  instructions and this comment as they will not be relevant in your code
+  example README.rst.
+
 ===========
 <demo_name>
 ===========
