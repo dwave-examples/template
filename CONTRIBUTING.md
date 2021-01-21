@@ -3,25 +3,59 @@
 Thanks for your interest in contributing to dwave-examples! Before getting
 started, we encourage you to take a look at this document for some guidelines.
 
+## What We're Looking For
+
+While we have a preference for application oriented examples, we welcome all
+examples that demonstrate use of the D-Wave system.
+
+For a list of existing examples, take a look
+[here](https://cloud.dwavesys.com/leap/examples/).
+
 ## Steps for Contributing
 
-1. Implement your example on a personal repository. To simplify the code
-   reviewing process, we encourage you to use a development branch. This way,
-   the code may be reviewed as a pull request.
+1. Download this repository for a template and implement your example on a
+   personal repository. Note: To simplify the code reviewing process, we
+   encourage you to use a development branch. This way, the code may be reviewed
+   as a pull request.
 
-2. Open an issue on this repository and link to your example.
+2. Open an issue on this repository and link to your example. See the following
+   section for what to include in your issue.
 
 3. Once your example has been reviewed, ____?
 
-## Structure
+## Issue Template
 
-To keep our examples consistent, we encourage you to consider the following:
+**Description**
+
+A clear and concise description of the concepts in your project and the problem 
+your code solves. Please include any references you used.
+
+**How to run the example**
+
+A short description of how to run your code, including an example.
+
+**Link to your repo**
+
+Include a link to the repository you want to contribute to dwave-examples.
+
+**Environment**
+ - Python version: [e.g., 3.9.0]
+ - Ocean version: [e.g., 3.0]
+
+**Additional information**
+
+Add any other information.
+
+## Structure
 
 ### Files
 
-All examples should contain:
+This template includes all required files.
 
-* README.md: See [README_template.md](README_template.md).
+For users who do not wish to use this template, please make sure that your
+example includes the following:
+
+* README.md: See this repository's [README.md](README.md).
 
 * requirements.txt: dwave-ocean-sdk should be unpinned and lower bounded.
 
@@ -42,4 +76,7 @@ If your example is lengthy, we encourage modularity for ease of testing.
 
 ### Documentation
 
-We use the [Google docstrings convention](https://google.github.io/styleguide/pyguide.html).
+We use the [Google docstrings convention](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings).
+
+Take a look at our [How to Contribute](https://docs.ocean.dwavesys.com/en/latest/contributing.html#documentation-and-comments)
+guide for more details.

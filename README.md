@@ -9,9 +9,11 @@ example README.md.-->
 
 # <demo_name>
 
-Short blurb on what this demo does.
+Describe your example and specify what it is demonstrating. Does it have a
+business application? Is it pedagogical? It is meant to showcase performance?
 
-If your demo produces a visualization, consider displaying an image of it here.
+Images are encouraged. If your demo produces a visualization, consider
+displaying it here.
 
 ![D-Wave Logo](dwave_logo.png)
 
@@ -23,11 +25,13 @@ A simple command that runs the demo. For example,
 python <demo_name>.py
 ```
 
+If your example requires user input, make sure to specify any input limitations.
+
 ## Code Overview
 
 A general overview of how the code works.
 
-Prefer bite-sized descriptions in bullet points:
+We prefer bite-sized descriptions in bullet points:
 
 * Here's an example bullet point
 
@@ -40,6 +44,7 @@ This is the place to:
 * Highlight a part of the code implementation
 * Talk about unusual or potentially difficult parts of the code
 * Explain a code decision
+* Explain how parameters were tuned
 
 Note: there is no need to repeat everything that is already well-documented in
 the code.
