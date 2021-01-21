@@ -1,5 +1,7 @@
-**Interested in contributing a code example?** Please let us know about your
-code example by submitting a new issue to this repository. Thanks!
+**Interested in contributing a code example?** 
+
+Please take a look at our [contribution guidelines](CONTRIBUTING.md) before
+getting started. Thanks!
 
 <!-- Before submitting your code, please delete the above code contribution
 instructions and this comment as they will not be relevant in your code 
