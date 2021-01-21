@@ -55,14 +55,18 @@ This template includes all required files.
 For users who do not wish to use this template, please make sure that your
 example includes the following:
 
-* README.md: See this repository's [README.md](README.md).
+* README.md:
+    * We prefer .md over .rst.
+    * See this repository's [README](README.md).
 
-* requirements.txt: dwave-ocean-sdk should be unpinned and lower bounded.
+* requirements.txt:
+    * dwave-ocean-sdk should be unpinned and lower bounded.
 
-* LICENSE: Copy the [LICENSE](LICENSE) file from this repository.
+* LICENSE:
+    * Copy the [LICENSE](LICENSE) file from this repository.
 
-* Tests that are discoverable through `python -m unittest discover`. See the
-  `tests` directory in any of our existing examples for guidance.
+* Tests that are discoverable through `python -m unittest discover`.
+    * See the `tests` directory in any of our existing examples for guidance.
 
 Our examples are tested using CircleCI. Feel free to copy the `.circleci/`
 directory into your example's root directory. Once approved, we will make sure
