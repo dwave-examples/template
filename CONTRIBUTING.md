@@ -6,47 +6,28 @@ started, we encourage you to take a look at this document for some guidelines.
 ## What We're Looking For
 
 While we have a preference for application oriented examples, we welcome all
-examples that demonstrate use of the D-Wave system.
+examples that demonstrate use of Ocean tools.
 
 For a list of existing examples, take a look
 [here](https://cloud.dwavesys.com/leap/examples/).
 
 ## Steps for Contributing
 
-1. Download this repository for a template and implement your example on a
-   personal repository. Note: To simplify the code reviewing process, we
-   encourage you to use a development branch. This way, the code may be reviewed
-   as a pull request.
+1. Clone this repository for a basic template from which to implement your
+   example. Alternatively, clone one of our existing examples and modify that
+   instead.
 
-2. Open an issue on this repository and link to your example. See the following
-   section for what to include in your issue.
+2. Open an issue on this repository with the following:
+    * A link to your example repository
+    * Your environment:
+        * Python version: [e.g., 3.9.0]
+        * Ocean version: [e.g., 3.0.0]
+    * Any additional information that is not included in your README.
 
-3. Once your example has been reviewed, ____?
+3. D-Wave will fork your repository. We may make a pull request if we would like
+   your approval for certain code changes.
 
-## Issue Template
-
-**Description**
-
-A clear and concise description of the concepts in your project and the problem 
-your code solves. Please include any references you used.
-
-**How to run the example**
-
-A short description of how to run your code, including an example.
-
-**Link to your repo**
-
-Include a link to the repository you want to contribute to dwave-examples.
-
-**Environment**
- - Python version: [e.g., 3.9.0]
- - Ocean version: [e.g., 3.0]
-
-**Additional information**
-
-Add any other information.
-
-## Structure
+## Guidelines
 
 ### Files
 
@@ -66,7 +47,6 @@ example includes the following:
     * Copy the [LICENSE](LICENSE) file from this repository.
 
 * Tests that are discoverable through `python -m unittest discover`.
-    * See the `tests` directory in any of our existing examples for guidance.
 
 Our examples are tested using CircleCI. Feel free to copy the `.circleci/`
 directory into your example's root directory. Once approved, we will make sure
