@@ -17,12 +17,7 @@ For a list of existing examples, take a look
    example. Alternatively, clone one of our existing examples and modify that
    instead.
 
-2. Open an issue on this repository with the following:
-    * A link to your example repository
-    * Your environment:
-        * Python version: [e.g., 3.9.0]
-        * Ocean version: [e.g., 3.0.0]
-    * Any additional information that is not included in your README.
+2. Open an issue on this repository with a link to your example.
 
 3. D-Wave will fork your repository. We may make a pull request if we would like
    your approval for certain code changes.
