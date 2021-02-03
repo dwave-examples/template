@@ -39,7 +39,10 @@ example includes the following:
     * dwave-ocean-sdk should be unpinned and lower bounded.
 
 * LICENSE:
-    * Copy the [LICENSE](LICENSE) file from this repository.
+    * Examples should comply with the Apache 2.0 License. Please make sure that:
+        * All source and test files include a license header (as shown in
+            [demo_name.py](demo_name.py))
+        * The [LICENSE](LICENSE) file is included in your root directory.
 
 * Tests that are discoverable through `python -m unittest discover`.
 
