@@ -9,19 +9,23 @@ example README.md.-->
 
 # <demo_name>
 
-Describe your example and specify what it is demonstrating. Does is belong to a
-particular domain such as material simulation or logistics? What level of Ocean
-proficiency does it target (beginner, advanced, pro)? A clear description allows
-us to properly categorize your example.
+Describe your example and specify what it is demonstrating. Consider the
+following questions:
 
-Images are encouraged. If your demo produces a visualization, consider
+* Is it pedagogical or a usable application?
+* Does it belong to a particular domain such as material simulation or logistics? 
+* What level of Ocean proficiency does it target (beginner, advanced, pro)? 
+
+A clear description allows us to properly categorize your example.
+
+Images are encouraged. If your example produces a visualization, consider
 displaying it here.
 
 ![D-Wave Logo](dwave_logo.png)
 
 ## Usage
 
-A simple command that runs the demo. For example,
+A simple command that runs your program. For example,
 
 ```bash
 python <demo_name>.py
@@ -33,7 +37,7 @@ If your example requires user input, make sure to specify any input limitations.
 
 A general overview of how the code works.
 
-We prefer bite-sized descriptions in bullet points:
+We prefer descriptions in bite-sized bullet points:
 
 * Here's an example bullet point
 

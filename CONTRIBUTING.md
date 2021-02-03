@@ -8,8 +8,11 @@ started, we encourage you to take a look at this document for some guidelines.
 While we have a preference for application oriented examples, we welcome all
 examples that demonstrate use of Ocean tools.
 
-For a list of existing examples, take a look
-[here](https://cloud.dwavesys.com/leap/examples/).
+To see our categorized collection of examples, create a free acount on
+[Leap](https://cloud.dwavesys.com/leap/signup/) and take a look
+[here](https://cloud.dwavesys.com/leap/examples/). You can also find our existing
+examples by going through the repositories in
+[dwave-examples](https://github.com/dwave-examples).
 
 ## Steps for Contributing
 
@@ -17,19 +20,17 @@ For a list of existing examples, take a look
    example. Alternatively, clone one of our existing examples and modify that
    instead.
 
-2. Open an issue on this repository with a link to your example.
+2. [Open an issue on the dwave-examples/template repository](https://github.com/dwave-examples/template/issues/new/choose)
+   with a link to your example.
 
-3. D-Wave will fork your repository. We may make a pull request if we would like
-   your approval for certain code changes.
+3. To add your example, D-Wave will fork your repository. We may make a pull
+   request if we would like your approval for certain code changes.
 
 ## Guidelines
 
 ### Files
 
-This template includes all required files.
-
-For users who do not wish to use this template, please make sure that your
-example includes the following:
+Please make sure that your example includes the following:
 
 * README.md:
     * We prefer .md over .rst.
@@ -46,9 +47,14 @@ example includes the following:
 
 * Tests that are discoverable through `python -m unittest discover`.
 
-Our examples are tested using CircleCI. Feel free to copy the `.circleci/`
-directory into your example's root directory. Once approved, we will make sure
-that your example is set up on our CircleCI account.
+Our examples are tested using CircleCI. For a list of operating systems and
+Python versions we currently test our examples with, please take a look at our
+documentation
+[here](https://docs.ocean.dwavesys.com/en/stable/overview/install.html).
+
+Feel free to copy the `.circleci/` directory into your example's root directory.
+Once approved, we will make sure that your example is set up on our CircleCI
+account.
 
 ### Code
 

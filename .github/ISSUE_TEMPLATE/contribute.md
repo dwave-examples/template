@@ -9,9 +9,8 @@ about: Let us know you have an example you'd like to contribute.
 Include a link to the repo you want to contribute to dwave-examples.
 
 **Environment**
- - Operating system
+ - Operating system: [e.g., macOS 10.15]
  - Python version: [e.g., 3.9.0]
- - Ocean version: [e.g., 3.3.0]
 
 **Additional information**
 
