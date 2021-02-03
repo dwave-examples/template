@@ -9,9 +9,10 @@ example README.md.-->
 
 # <demo_name>
 
-Describe your example and specify what it is demonstrating. Does it have a
-business application? Is it pedagogical? It is meant to showcase performance? A
-clear description allows us to properly categorize your example. 
+Describe your example and specify what it is demonstrating. Does is belong to a
+particular domain such as material simulation or logistics? What level of Ocean
+proficiency does it target (beginner, advanced, pro)? A clear description allows
+us to properly categorize your example.
 
 Images are encouraged. If your demo produces a visualization, consider
 displaying it here.
