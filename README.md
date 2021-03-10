@@ -57,13 +57,14 @@ the code.
 
 If you would like to include math equations to explain parts of your code or repo,
 it is recommended to use an external renderer and insert prepared svg files here.
-For example, using the CodeCogs equation editor,
+For example, it's possible to insert a link to the online CodeCogs equation editor;
 
-`![](https://latex.codecogs.com/svg.latex?%5Clarge%20x_%7Bik%7D%20&plus;%20x_%7Bjk%7D%20-%202%20x_%7Bik%7Dx_%7Bjk%7D)`
+`<img src="https://latex.codecogs.com/svg.latex? \large x_{ik} + x_{jk} - 2x_{ik}x_{jk}"/>`
 
 renders the following expression.
 
-![](https://latex.codecogs.com/svg.latex?%5Clarge%20x_%7Bik%7D%20&plus;%20x_%7Bjk%7D%20-%202%20x_%7Bik%7Dx_%7Bjk%7D)
+<img src="https://latex.codecogs.com/svg.latex? \large x_{ik} + x_{jk} - 2x_{ik}x_{jk}"/>
+
 
 Inserting a relative link to the svg in the repository in the `readme_imgs`
 folder produces the same result.
