@@ -55,6 +55,24 @@ This is the place to:
 Note: there is no need to repeat everything that is already well-documented in
 the code.
 
+If you would like to include math equations to explain parts of your code or repo,
+it is recommended to use an external renderer and insert prepared svg files here.
+For example, using the CodeCogs equation editor,
+
+`![](https://latex.codecogs.com/svg.latex?%5Clarge%20x_%7Bik%7D%20&plus;%20x_%7Bjk%7D%20-%202%20x_%7Bik%7Dx_%7Bjk%7D)`
+
+renders the following expression.
+
+![](https://latex.codecogs.com/svg.latex?%5Clarge%20x_%7Bik%7D%20&plus;%20x_%7Bjk%7D%20-%202%20x_%7Bik%7Dx_%7Bjk%7D)
+
+Inserting a relative link to the svg in the repository in the `readme_imgs`
+folder produces the same result.
+
+`![Expression](readme_imgs/expression.svg)`
+
+![Expression](readme_imgs/expression.svg)
+
+
 ## References
 
 A. Person, "Title of Amazing Information", [short link
