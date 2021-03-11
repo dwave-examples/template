@@ -88,7 +88,7 @@ src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
 
 .
 
-<img src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}" style="background-color:white;border:1px solid white">
+<code><img src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}" style="background-color:white;border:1px solid white"></code>
 
 .
 
