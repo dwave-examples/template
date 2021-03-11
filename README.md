@@ -1,3 +1,5 @@
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 **Interested in contributing a code example?** 
 
 Please take a look at our [contribution guidelines](CONTRIBUTING.md) before
@@ -59,11 +61,15 @@ If you would like to include math equations to explain parts of your code or rep
 it is recommended to use an external renderer and insert prepared svg files here.
 For example, it's possible to insert a link to the online CodeCogs equation editor;
 
-`<img src="https://render.githubusercontent.com/render/math?math=\large+x_{ik}+x_{jk}-2x_{ik}x_{jk}"/>`
+`<img src="http://latex.codecogs.com/svg.latex?
+\large x_{ik} + x_{jk}-2x_{ik}x_{jk}
+"/>`
 
 renders the following expression.
 
-<img src="https://render.githubusercontent.com/render/math?math=\large x_{ik} + x_{jk}-2x_{ik}x_{jk} "/>
+<img src="http://latex.codecogs.com/svg.latex?
+\large x_{ik} + x_{jk}-2x_{ik}x_{jk}
+"/>
 
 
 Inserting a relative link to the svg in the repository in the `readme_imgs`
