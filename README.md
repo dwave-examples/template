@@ -59,7 +59,7 @@ If you would like to include math equations to explain parts of your code or rep
 it is recommended to use an external renderer and insert prepared svg files here.
 For example, it's possible to insert a link to the online CodeCogs equation editor;
 
-`<img src="http://latex.codecogs.com/g.latex?\large
+`<img src="http://latex.codecogs.com/svg.latex?\large
 x_{ik}+x_{jk}-2x_{ik}x_{jk}
 ">`
 
@@ -68,6 +68,8 @@ renders the following expression.
 <img src="https://latex.codecogs.com/svg.latex?
 \large x_{ik} + x_{jk}-2x_{ik}x_{jk}
 ">
+
+<img src="https://i.pinimg.com/originals/c8/e5/75/c8e5753370bad54c7977d485e0a0e29d.jpg">
 
 
 Inserting a relative link to the svg in the repository in the `readme_imgs`
