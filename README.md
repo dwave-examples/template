@@ -66,9 +66,6 @@ x_{ik}+x_{jk}-2x_{ik}x_{jk}
 renders the following expression.
 
 
-<img src="https://latex.codecogs.com/svg.latex?\large%20
-x_{ik}+x_{jk}-2x_{ik}x_{jk}">
-
 <img src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
 
 
