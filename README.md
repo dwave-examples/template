@@ -65,7 +65,9 @@ src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
 renders the following expression.
 
 
-<img style="background-color:white;border:2px solid white"
+<img style="background-color:white;border:1px solid white" src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
+
+<img style="background-color:white;border:1px solid white" 
 src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
 
 
