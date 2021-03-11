@@ -1,5 +1,3 @@
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
 **Interested in contributing a code example?** 
 
 Please take a look at our [contribution guidelines](CONTRIBUTING.md) before
