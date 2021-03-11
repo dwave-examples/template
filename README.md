@@ -69,7 +69,39 @@ renders the following expression.
 \large x_{ik} + x_{jk}-2x_{ik}x_{jk}
 ">
 
+<img src="https://latex.codecogs.com/gif.latex?
+\large x_{ik} + x_{jk}-2x_{ik}x_{jk}
+">
+
+<img src="https://latex.codecogs.com/png.latex?
+\large x_{ik} + x_{jk}-2x_{ik}x_{jk}
+">
+
+<img src="https://latex.codecogs.com/svg.latex?\large x_{ik} + x_{jk}-2x_{ik}x_{jk}">
+
+.
+<img src="https://latex.codecogs.com/gif.latex?\large x_{ik} + x_{jk}-2x_{ik}x_{jk}">
+
+.
+
+<img src="https://latex.codecogs.com/png.latex?\large x_{ik} + x_{jk}-2x_{ik}x_{jk}">
+
+.
+
+<img src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
+
+,
+
+<img src="https://latex.codecogs.com/gif.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
+
+,
+
+<img src="https://latex.codecogs.com/png.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
+
+.
+
 <img src="https://i.pinimg.com/originals/c8/e5/75/c8e5753370bad54c7977d485e0a0e29d.jpg">
+
 
 
 Inserting a relative link to the svg in the repository in the `readme_imgs`
