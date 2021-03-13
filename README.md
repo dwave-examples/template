@@ -59,50 +59,11 @@ If you would like to include math equations to explain parts of your code or rep
 it is recommended to use an external renderer and insert prepared svg files here.
 For example, it's possible to insert a link to the online CodeCogs equation editor;
 
-`<img style="background-color:white;border:1px solid white"
-src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">`
+`<img src="https://latex.codecogs.com/svg.latex?\large\pagecolor{white}x_{ik}+x_{jk}-2x_{ik}x_{jk}"> `
 
 renders the following expression.
 
-
-<img style="background-color:white;border:1px solid white" src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
-
-.
-
-<img style="background-color:white" src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
-
-.
-
-<img style="background-color:white;border:1px solid white" 
-src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
-
-.
-
-<img style="background-color:white;border:1px solid white" 
-src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
-
-.
-
-<img style="background-color:white;border:1px solid white" 
-src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
-
-.
-
-<code><img src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}"></code>
-
-.
-
-<img src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}" alt="expression" style="background-color: white;border: 1px solid white"/>
-
-.
-
-<img src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}" style="background-color:white;border:1px solid white"></img>
-
-.
-
-<img style="background-color:white;border:1px solid white" 
-src="https://latex.codecogs.com/svg.latex?\large%20x_{ik}+x_{jk}-2x_{ik}x_{jk}">
-
+<img src="https://latex.codecogs.com/svg.latex?\large\pagecolor{white}x_{ik}+x_{jk}-2x_{ik}x_{jk}"> 
 
 Inserting a relative link to the svg in the repository in the `readme_imgs`
 folder produces the same result.
