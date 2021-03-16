@@ -58,15 +58,16 @@ the code.
 If you would like to include math equations to explain parts of your code or repo,
 it is recommended to use an external renderer and insert prepared svg files here.
 For example, it's possible to insert a link to the online CodeCogs equation editor;
+below includes syntax to be read on darkmode by default in D-Wave's [Leap IDE](https://ide.dwavesys.io).
 
-`<img src="https://latex.codecogs.com/svg.latex?\large\pagecolor{white}x_{ik}+x_{jk}-2x_{ik}x_{jk}"> `
+`<img style="filter:invert(1)" src="https://latex.codecogs.com/svg.latex?\large\,x_{ik}+x_{jk}-2x_{ik}x_{jk}"> `
 
-renders the following expression.
+The above renders the following expression in your github markdown readme.
 
-<img src="https://latex.codecogs.com/svg.latex?\large\pagecolor{white}x_{ik}+x_{jk}-2x_{ik}x_{jk}"> 
+<img style="filter:invert(1)" src="https://latex.codecogs.com/svg.latex?\large\,x_{ik}+x_{jk}-2x_{ik}x_{jk}"> 
 
 Inserting a relative link to the svg in the repository in the `readme_imgs`
-folder produces the same result.
+folder produces the same result, but without the filter option.
 
 `![Expression](readme_imgs/expression.svg)`
 
