@@ -55,23 +55,34 @@ This is the place to:
 Note: there is no need to repeat everything that is already well-documented in
 the code.
 
+## Adding Equations
+
 If you would like to include math equations to explain parts of your code or repo,
-it is recommended to use an external renderer and insert prepared svg files here.
-For example, it's possible to insert a link to the online CodeCogs equation editor;
-below includes syntax to be read on darkmode by default in D-Wave's [Leap IDE](https://ide.dwavesys.io).
+it is recommended to use an external LaTeX renderer, or insert pre-rendered images in the repo.
+For example, it's possible to insert a link to the online CodeCogs equation editor which will
+render LaTeX in the url; there's also syntax to accommodate darkmode by default in D-Wave's [Leap IDE](https://ide.dwavesys.io).
+
+ - Using a URL LaTeX renderer
 
 `<img style="filter:invert(1)" src="https://latex.codecogs.com/svg.latex?\large\,x_{ik}+x_{jk}-2x_{ik}x_{jk}"> `
 
-The above renders the following expression in your github markdown readme.
+The above text in markdown renders the following expression in your markdown readme.
 
 <img style="filter:invert(1)" src="https://latex.codecogs.com/svg.latex?\large\,x_{ik}+x_{jk}-2x_{ik}x_{jk}"> 
 
 Inserting a relative link to the svg in the repository in the `readme_imgs`
-folder produces the same result, but without the filter option.
+folder produces the same result.
 
-`![Expression](readme_imgs/expression.svg)`
+ - Inserting a static image
 
-![Expression](readme_imgs/expression.svg)
+`<img style="filter:invert(1)" src="readme_imgs/expression.svg">`
+
+The above text will render the image currently located at the address in the repository.
+
+<img style="filter:invert(1)" src="readme_imgs/expression.svg">
+
+Note: Please consider that some users may be reading your documentation in darkmode, including Leap users.
+This may be difficult for certain static images without the kind of filter above.
 
 
 ## References
