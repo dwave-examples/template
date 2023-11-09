@@ -31,7 +31,28 @@ A simple command that runs your program. For example,
 python <demo_name>.py
 ```
 
-If your example requires user input, make sure to specify any input limitations.
+### Inputs
+If your example requires user input, make sure to specify the input format and any input limitations.
+### Outputs
+An example program output.
+
+## Problem Description 
+
+Objectives to be Optimized: the goals the process attempts to accomplish by minimizing or maximizing certain aspects of the problem to the extent possible.
+* Minimize the time to produce all of the products
+
+Constraints: aspects of the problem and/or process with limited or no flexibility, which must be satisfied for solutions to be considered feasible.
+* Machine A can only bend 10 parts per hour
+
+## Model Overview
+
+### Parameters
+### Variables
+### Expressions
+### Objective
+Matching the objective description in the previous section with the mathematical formulation of the expression based on the problem paramaters and variables
+### Constrains
+Matching the constraint description(s) in the previous section with the mathematical formulation of the expression based on the problem paramaters and variables
 
 ## Code Overview
 
