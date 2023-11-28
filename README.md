@@ -46,6 +46,8 @@ Constraints: aspects of the problem and/or process, with limited or no flexibili
 The clearer your model is presented here, the more useful it will be to others. For a strong example of this section, see [here](https://github.com/dwave-examples/3d-bin-packing#model-overview).
 
 ### Parameters
+List and define the parameters used in your model.
+
 ### Variables
 ### Expressions
 ### Objective
