@@ -49,6 +49,8 @@ The clearer your model is presented here, the more useful it will be to others. 
 List and define the parameters used in your model.
 
 ### Variables
+List and define (including type: e.g., "binary" or "integer") the variables solved for in your model.
+
 ### Expressions
 ### Objective
 Matching the objective description in the previous section with the mathematical formulation of the expression based on the problem paramaters and variables
