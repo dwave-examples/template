@@ -43,6 +43,7 @@ Objectives to be optimized: the goals the process attempts to accomplish by mini
 Constraints: aspects of the problem and/or process, with limited or no flexibility, that must be satisfied for solutions to be considered feasible; for example, a production-line optimization might have a limitation that Machine A can only bend 10 parts per hour.
 
 ## Model Overview
+The clearer your model is presented here, the more useful it will be to others. For a strong example of this section, see [here](https://github.com/dwave-examples/3d-bin-packing#model-overview).
 
 ### Parameters
 ### Variables
