@@ -40,8 +40,7 @@ An example program output.
 
 Objectives to be optimized: the goals the process attempts to accomplish by minimizing or maximizing certain aspects of the problem to the extent possible; for example, a production-line optimization might attempt to minimize the time to produce all of the products.
 
-Constraints: aspects of the problem and/or process with limited or no flexibility, which must be satisfied for solutions to be considered feasible.
-* Machine A can only bend 10 parts per hour
+Constraints: aspects of the problem and/or process, with limited or no flexibility, that must be satisfied for solutions to be considered feasible; for example, a production-line optimization might have a limitation that Machine A can only bend 10 parts per hour.
 
 ## Model Overview
 
