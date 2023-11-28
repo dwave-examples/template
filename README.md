@@ -55,7 +55,8 @@ List and define (including type: e.g., "binary" or "integer") the variables solv
 List and define any combinations of variables used for easier representations of the models.
 
 ### Objective
-Matching the objective description in the previous section with the mathematical formulation of the expression based on the problem paramaters and variables
+Mathematical formulation of the objective described in the previous section using the listed parameters, variables, etc.
+
 ### Constrains
 Matching the constraint description(s) in the previous section with the mathematical formulation of the expression based on the problem paramaters and variables
 
