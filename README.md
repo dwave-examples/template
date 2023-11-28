@@ -58,7 +58,7 @@ List and define any combinations of variables used for easier representations of
 Mathematical formulation of the objective described in the previous section using the listed parameters, variables, etc.
 
 ### Constrains
-Matching the constraint description(s) in the previous section with the mathematical formulation of the expression based on the problem paramaters and variables
+Mathematical formulation of the constraints described in the previous section using the listed parameters, variables, etc.
 
 ## Code Overview
 
