@@ -32,18 +32,18 @@ examples by going through the repositories in
 
 Please make sure that your example includes the following:
 
-* README.md:
-    * We prefer .md over .rst.
+* `README.md`:
+    * We prefer `.md` over `.rst`.
     * See this repository's [README](README.md).
 
-* requirements.txt:
-    * dwave-ocean-sdk should be unpinned and lower bounded.
+* `requirements.txt`:
+    * `dwave-ocean-sdk` should be unpinned and lower bounded.
 
-* LICENSE:
+* `LICENSE`:
     * Examples should comply with the Apache 2.0 License. Please make sure that:
         * All source and test files include a license header (as shown in
-            [demo_name.py](demo_name.py))
-        * The [LICENSE](LICENSE) file is included in your root directory.
+            [`demo_name.py`](demo_name.py))
+        * The [`LICENSE`](LICENSE) file is included in your root directory.
 
 * Tests that are discoverable through `python -m unittest discover`.
 
@@ -52,16 +52,16 @@ Python versions we currently test our examples with, please take a look at our
 documentation
 [here](https://docs.ocean.dwavesys.com/en/stable/overview/install.html).
 
-Feel free to copy the `.circleci/` directory into your example's root directory.
+Feel free to copy the [`.circleci/`](.circleci/) directory into your example's root directory.
 Once approved, we will make sure that your example is set up on our CircleCI
 account.
 
 To ensure your example runs in [GitHub Codespaces](https://docs.github.com/en/codespaces/overview),
-copy the [.devcontainer/](.devcontainer/) directory into your example's root directory.
+copy the [`.devcontainer/`](.devcontainer/) directory into your example's root directory.
 
 ### Code
 
-We use the [pep8](https://www.python.org/dev/peps/pep-0008/) style guide as a baseline.
+We use the [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide as a baseline.
 
 If your example is lengthy, we encourage modularity for ease of testing.
 
