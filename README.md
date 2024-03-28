@@ -25,6 +25,8 @@ displaying it here.
 
 ## Usage
 
+[![Codacy Security Scan](https://github.com/rajabhinav1/Abhinav/actions/workflows/codacy.yml/badge.svg)](https://github.com/rajabhinav1/Abhinav/actions/workflows/codacy.yml)
+
 A simple command that runs your program. For example,
 
 ```bash
