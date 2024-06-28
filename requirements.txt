@@ -1,1 +1,2 @@
 dwave-ocean-sdk>=3.0.0
+dash[diskcache]==2.15.0

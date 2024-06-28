@@ -21,15 +21,33 @@ A clear description allows us to properly categorize your example.
 Images are encouraged. If your example produces a visualization, consider
 displaying it here.
 
-![D-Wave Logo](dwave_logo.png)
+![D-Wave Logo](assets/dwave_logo.svg)
 
-## Usage
+## Installation
+You can run this example without installation in cloud-based IDEs that support the [Development Containers specification](https://containers.dev/supporting) (aka "devcontainers").
 
-A simple command that runs your program. For example,
+For development environments that do not support `devcontainers`, install requirements:
 
 ```bash
-python <demo_name>.py
+pip install -r requirements.txt
 ```
+
+If you are cloning the repo to your local system, working in a [virtual environment](https://docs.python.org/3/library/venv.html) is recommended.
+
+## Usage
+Your development environment should be configured to [access Leap’s Solvers](https://docs.ocean.dwavesys.com/en/stable/overview/sapi.html). You can see information about supported IDEs and authorizing access to your Leap account [here](https://docs.dwavesys.com/docs/latest/doc_leap_dev_env.html).
+
+To run the demo:
+
+```bash
+python app.py
+```
+
+Access the user interface with your browser at http://127.0.0.1:8050/.
+
+The demo program opens an interface where you can configure problems and submit these problems to a solver.
+
+Configuration options can be found in the [app_configs.py](app_configs.py) file.
 
 ### Inputs
 If your example requires user input, make sure to specify the input format and any input limitations.
@@ -38,7 +56,7 @@ An example program output.
 
 ## Problem Description 
 
-Objectives to be optimized: the goals the process attempts to accomplish by minimizing or maximizing certain aspects of the problem to the extent possible; for example, a production-line optimization might attempt to minimize the time to produce all of the products.
+Objectives to be optimized: the goal the example attempts to accomplish by minimizing or maximizing certain aspects of the problem; for example, a production-line optimization might attempt to minimize the time to produce all of the products.
 
 Constraints: aspects of the problem and/or process, with limited or no flexibility, that must be satisfied for solutions to be considered feasible; for example, a production-line optimization might have a limitation that Machine A can only bend 10 parts per hour.
 

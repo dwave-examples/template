@@ -1,0 +1,9 @@
+*.so
+__pycache__
+.pytest_cache
+cache
+build
+dist
+*.egg-info
+assets/theme.css
+*.DS_Store
