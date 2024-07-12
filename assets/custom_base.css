@@ -1,0 +1,149 @@
+/* A custom base of style rules defined specifically for the demos */
+
+body {
+    background-color: #f9f9f9;
+    color: var(--grey-dark);
+    font-size: 1.4rem;
+    margin: 0rem;
+}
+
+h1, h2, h3, h4, h5, h6, td, th, span, a, p, label, button, input {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--theme);
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+    margin: 2.5rem 0 1rem;
+}
+
+h4 {
+    font-size: 2rem;
+    margin-top: 0;
+    font-weight: 500;
+}
+
+h5 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+label {
+    margin: 2rem 0 0.2rem;
+    font-weight: 500;
+}
+
+hr {
+    margin: 1rem 0;
+}
+
+table {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    border: 1px solid var(--grey-light);
+}
+
+td {
+    color: var(--grey-dark);
+}
+
+th, td {
+    padding: 0.5rem 1rem;
+    border-right: 1px solid var(--grey-light);
+}
+
+th:first-child, td:first-child {
+    padding-left: 1.2rem;
+}
+
+th:last-child, td:last-child {
+    padding-right: 1.2rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--theme);
+    margin: 0 0.6rem 0 0;
+}
+
+.display-none {
+    display: none;
+}
+  
+#app-container {
+    min-width: 1000px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner {
+    flex: 0 0 var(--banner-height);
+    background-color: var(--theme);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.banner img {
+    position: relative;
+    height: 3rem;
+    width: auto;
+    margin-left: 2rem;
+}
+
+.columns-main {
+    display: flex;
+    flex: 1;
+}
+
+.left-column {
+    display: flex;
+}
+
+.right-column {
+    background-color: var(--grey-light);
+    padding: 2rem 0 0;
+    width: 100%;
+}
+
+.description-card {
+    margin: 2rem 0;
+}
+
+.settings {
+    margin-bottom: 2rem;
+}
+
+.VirtualizedSelectFocusedOption {
+    background-color: var(--grey-lighter);
+}
+
+.is-focused:not(.is-open) > .Select-control {
+    border-color: var(--theme-secondary);
+    box-shadow: none;
+}
+
+.Select {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+.radio label,
+.checklist label {
+    margin-top: 0.2rem;
+    font-weight: 400;
+}
+
+.radio--inline label:first-child,
+.checklist--inline label:first-child {
+    margin-right: 1.4rem;
+}

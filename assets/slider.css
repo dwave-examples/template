@@ -1,0 +1,82 @@
+/* The CSS rules for the dcc.Slider element */
+
+.rc-slider-tooltip-inner {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+.slider {
+    padding-left: 6px !important;
+    padding-right: 8px !important;
+}
+
+.rc-slider-handle,
+.rc-slider-dot-active {
+    border-color: var(--theme-secondary);
+    transition: filter 0.1s ease-in-out;
+}
+
+.rc-slider-handle:active {
+    box-shadow: 0 0 5px var(--theme-secondary);
+}
+
+.rc-slider-handle:active,
+.rc-slider-handle:hover,
+.rc-slider-handle-click-focused,
+.rc-slider-handle-click-focused:focus {
+    border-color: var(--theme-secondary);
+    filter: brightness(80%)
+}
+
+.rc-slider-track {
+    background-color: var(--theme-secondary);
+}
+
+.rc-slider-tooltip-inner {
+    background-color: white;
+    color: var(--grey-dark);
+    border: 1px solid var(--grey);
+    border-radius: 2px;
+}
+
+.rc-slider-tooltip {
+    pointer-events: none;
+}
+
+.rc-slider-tooltip .rc-slider-tooltip-arrow {
+    display: none;
+}
+
+.rc-slider-tooltip-inner:before,
+.rc-slider-tooltip-inner:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.rc-slider-tooltip-inner:before {
+    left: 6px;
+    top: -11px;
+    border: 6px solid transparent;
+    border-bottom-color: var(--grey);
+}
+
+.rc-slider-tooltip-inner:after {
+    left: 7px;
+    top: -9px;
+    border: 5px solid transparent;
+    border-bottom-color: white;
+}
+
+.rc-slider-tooltip-placement-top .rc-slider-tooltip-inner:before {
+    bottom: -3px;
+    top: auto;
+    transform: rotate(180deg);
+}
+
+.rc-slider-tooltip-placement-top .rc-slider-tooltip-inner:after {
+    bottom: -1px;
+    top: auto;
+    transform: rotate(180deg);
+}

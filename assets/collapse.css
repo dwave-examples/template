@@ -1,0 +1,94 @@
+/* CSS style rules for collapsible dropdowns like left-column-collapse and problem-details-collapse */
+
+.left-column-collapse,
+.left-column-collapse:hover,
+.left-column-collapse:focus {
+    background: white;
+    border: 1px var(--grey-lighter);
+    border-style: none solid none none;
+    height: 100%;
+    border-radius: 0;
+    padding: 0 0 0 0.5rem;
+    filter: none;
+}
+
+.details-collapse,
+.details-collapse:hover,
+.details-collapse:focus {
+    border: none;
+    background: none;
+    display: flex;
+    padding: 0 2rem 0 0;
+    transition: filter 0.2s ease-in-out;
+    text-transform: none;
+    height: auto;
+}
+
+.details-collapse:hover {
+    filter: brightness(70%)
+}
+
+.details-collapse-wrapper {
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.collapse-arrow {
+    border-right: 4px solid var(--grey-light);
+    border-bottom: 4px solid var(--grey-light);
+    transform: rotate(135deg) skew(165deg, 165deg);
+    height: 2rem;
+    width: 2rem;
+    margin-right: -0.3rem;
+    transition: border-color 0.25s ease-in-out;
+}
+
+.details-collapse .collapse-arrow {
+    transform: rotate(225deg) skew(165deg, 165deg);
+    margin: 1.5rem 0 0 1.5rem;
+    border-color: var(--theme);
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.left-column-collapse:hover .collapse-arrow {
+    border-color: var(--grey);
+}
+
+.collapsed .left-column-collapse {
+    padding: 0 0.5rem 0 0;
+}
+
+.collapsed .left-column-collapse .collapse-arrow {
+    transform: rotate(315deg) skew(165deg, 165deg);
+}
+
+.collapsed .details-collapse .collapse-arrow {
+    margin-top: 1rem;
+    transform: rotate(45deg) skew(165deg, 165deg);
+}
+
+.details-to-collapse {
+    height: var(--problem-details-height);
+    transition: height 0.6s ease-in-out;
+    overflow: hidden;
+}
+
+.collapsed .details-to-collapse {
+    height: 0;
+}
+
+.left-column .left-column-layer-1 {
+    width: var(--left-col-width);
+    transition: width 0.6s ease-in-out;
+    overflow: hidden;
+}
+
+.left-column .left-column-layer-2 {
+    padding: 2rem 2rem 4rem;
+    width: calc(var(--left-col-width) - 4rem);
+}
+
+.left-column.collapsed .left-column-layer-1 {
+    width: 0;
+}

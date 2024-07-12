@@ -1,0 +1,30 @@
+/* CSS style rules for buttons */
+
+button {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    padding: 1.8rem 3.6rem;
+    height: auto;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    background-color: var(--theme);
+}
+
+button:hover {
+    filter: brightness(80%);
+    color: white;
+}
+
+#run-button,
+#cancel-button {
+    width: 100%;
+}
+
+#cancel-button {
+    background-color: var(--red-light);
+}
+
+#cancel-button:hover {
+    background-color: var(--red-dark);
+}

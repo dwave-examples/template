@@ -18,26 +18,23 @@ from enum import Enum
 from typing import Any, NamedTuple
 
 
-class VehicleType(Enum):
-    TRUCKS = 0
-    DELIVERY_DRONES = 1
-
-
 class SamplerType(Enum):
-    NL = 0
-    CLASSIC = 1
+    HYBRID = 0
+    CLASSICAL = 1
 
 
 class ProblemParameters(NamedTuple):
     """Structure to hold all provided problem parameters.
 
     Args:
-        sampler_type: Sampler type to use in solving CVRP.
+        sampler_type: Either Quantum Hybrid (``0`` or ``SamplerType.HYBRID``),
+            or Classical (``1`` or ``SamplerType.CLASSICAL``).
         time_limit: Time limit in seconds to run optimization for.
     """
 
     sampler_type: SamplerType
     time_limit: float
+    # Add more problem parameters here.
 
 
 class Solver:
@@ -69,11 +66,11 @@ class Solver:
         """
         start_time = time.perf_counter()
 
-        if self.sampler_type is SamplerType.NL:
-            print("Implement NL solver solution")
+        if self.sampler_type is SamplerType.HYBRID:
+            print("Implement Hybrid solver solution here.")
         else:
-            print("Implement Classical solution")
+            print("Implement Classical solver solution here.")
 
-        wall_clock_time = time.perf_counter() - start_time
+        total_run_time = time.perf_counter() - start_time
 
-        return wall_clock_time
+        return total_run_time

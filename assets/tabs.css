@@ -1,0 +1,61 @@
+/* CSS Style rules for tabs like the input and results tabs */
+
+.tab-container {
+    border-bottom: 3px solid var(--theme-secondary);
+    flex-direction: row;
+}
+
+.tab {
+    margin: 0 2rem;
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+    width: calc(100% / 2);
+}
+
+div.tab.tab--selected {
+    border: 3px solid var(--theme-secondary) !important;
+    border-bottom: none !important;
+    cursor: default;
+    box-shadow: 0 6px 0 -3px white;
+}
+
+div.tab.tab--disabled {
+    cursor: not-allowed !important;
+}
+
+.tab:first-child {
+    margin-right: 1rem;
+}
+
+.tab:last-child {
+    margin-left: 1rem;
+}
+
+.tab-content,
+.tab-parent {
+    height: 100%;
+}
+
+.tab-content > div:not(.tab-content--results) {
+    height: inherit;
+}
+
+.tab-content {
+    background-color: white;
+}
+
+.tab-content > div {
+    visibility: visible !important;
+}
+
+.tab-content--results {
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.tab-parent .tab-container div.tab.tab--failed {
+    border-top: 4px solid var(--red-light);
+}

@@ -1,0 +1,27 @@
+/*
+Variable declarations for all CSS files.
+Some additional variables are generated automatically in app.py.
+
+Dash imports all css files contained in /assets/ automatically
+so no imports are necessary.
+*/
+
+:root {
+    --blue-bright: #03B8FF;
+    --blue-light: #2A7DE1;
+    --blue-dark: #074C91;
+    --red-light: #C70039;
+    --red-dark: #900C3F;
+    --orange: #FF7006;
+    --teal-light: #06ECDC;
+    --teal-dark: #17BEBB;
+    --teal-darker: #008C82;
+    --grey-lighter: #EEEEEE;
+    --grey-light: #DDDDDD;
+    --grey: #AAAAAA;
+    --grey-medium: #777777;
+    --grey-dark: #222222;
+    --banner-height: 5.5rem;
+    --left-col-width: 42rem;
+    --problem-details-height: 18rem;
+}
