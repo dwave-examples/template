@@ -232,7 +232,7 @@ def run_optimization(
 
     return RunOptimizationReturn(
         sampler_type = "classical" if sampler_type is SamplerType.CLASSICAL else "quantum",
-        results = "Put the results here",
+        results = "Put demo results here.",
         problem_details_table=problem_details_table,
     )
 

@@ -1,7 +1,7 @@
 **Interested in contributing a code example?** 
 
 Please take a look at our [contribution guidelines](CONTRIBUTING.md) before
-getting started. Thanks!
+getting started. Thank you!
 
 <!-- Before submitting your code, please delete the above code contribution
 instructions and this comment as they will not be relevant in your code 
@@ -13,8 +13,8 @@ Describe your example and specify what it is demonstrating. Consider the
 following questions:
 
 * Is it pedagogical or a usable application?
-* Does it belong to a particular domain such as material simulation or logistics? 
-* What level of Ocean proficiency does it target (beginner, advanced, pro)? 
+* Does it belong to a particular domain such as material simulation or logistics?
+* What level of Ocean proficiency does it target (beginner, advanced, professional)?
 
 A clear description allows us to properly categorize your example.
 
@@ -37,7 +37,7 @@ If you are cloning the repo to your local system, working in a [virtual environm
 ## Usage
 Your development environment should be configured to [access Leap’s Solvers](https://docs.ocean.dwavesys.com/en/stable/overview/sapi.html). You can see information about supported IDEs and authorizing access to your Leap account [here](https://docs.dwavesys.com/docs/latest/doc_leap_dev_env.html).
 
-To run the demo:
+To run the Dash demo:
 
 ```bash
 python app.py

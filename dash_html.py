@@ -356,6 +356,7 @@ def set_html(app):
                                         children=[
                                             dcc.Loading(
                                                 id="loading",
+                                                parent_className="input",
                                                 type="circle",
                                                 color=THEME_COLOR_SECONDARY,
                                                 children=html.Div(id="input"),
@@ -371,7 +372,13 @@ def set_html(app):
                                             html.Div(
                                                 className="tab-content--results",
                                                 children=[
-                                                    html.Div(id="results"),
+                                                    dcc.Loading(
+                                                        id="loading",
+                                                        parent_className="results",
+                                                        type="circle",
+                                                        color=THEME_COLOR_SECONDARY,
+                                                        children=html.Div(id="results"),
+                                                    ),
                                                     html.Div(
                                                         [
                                                             html.Hr(),

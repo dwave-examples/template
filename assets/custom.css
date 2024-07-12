@@ -13,4 +13,11 @@ div.dash-sk-circle {
     border-right: none;
 }
 
+.input, .results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 /* CUSTOM CSS GOES HERE */
