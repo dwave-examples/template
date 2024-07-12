@@ -28,7 +28,7 @@ from app_configs import (
     THEME_COLOR_SECONDARY,
     THUMBNAIL,
 )
-from solver.solver import SamplerType
+from src.enums import SamplerType
 
 
 SAMPLER_TYPES = {SamplerType.HYBRID: "Quantum Hybrid", SamplerType.CLASSICAL: "Classical"}
@@ -355,7 +355,6 @@ def set_html(app):
                                         className="tab",
                                         children=[
                                             dcc.Loading(
-                                                id="loading",
                                                 parent_className="input",
                                                 type="circle",
                                                 color=THEME_COLOR_SECONDARY,
@@ -373,7 +372,6 @@ def set_html(app):
                                                 className="tab-content--results",
                                                 children=[
                                                     dcc.Loading(
-                                                        id="loading",
                                                         parent_className="results",
                                                         type="circle",
                                                         color=THEME_COLOR_SECONDARY,

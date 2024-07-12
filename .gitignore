@@ -5,5 +5,5 @@ cache
 build
 dist
 *.egg-info
-assets/theme.css
+assets/c10_theme.css
 *.DS_Store

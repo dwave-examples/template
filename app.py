@@ -32,8 +32,7 @@ from dash.exceptions import PreventUpdate
 
 from app_configs import APP_TITLE, DEBUG, THEME_COLOR, THEME_COLOR_SECONDARY
 from dash_html import generate_problem_details_table, set_html
-
-from solver.solver import ProblemParameters, SamplerType, Solver
+from src.enums import SamplerType
 
 cache = diskcache.Cache("./cache")
 background_callback_manager = DiskcacheManager(cache)
@@ -70,7 +69,7 @@ css = f"""/* Automatically generated theme settings css file, see app.py */
     --theme-secondary: {THEME_COLOR_SECONDARY};
 }}
 """
-with open("assets/theme.css", "w") as f:
+with open("assets/c10_theme.css", "w") as f:
     f.write(css)
 
 
@@ -207,27 +206,17 @@ def run_optimization(
         Time Limit: {time_limit}\
     ")
 
-    # Define the problem parameters. More parameters can be adding in solver.py.
-    problem_parameters = ProblemParameters(
-        sampler_type=sampler_type,
-        time_limit=time_limit,
-    )
 
-    # Solver class contains `generate` function that runs sampler code.
-    # Definition can be found in solver.py.
-    problem_solver = Solver(problem_parameters)
+    ###########################
+    ### YOUR CODE GOES HERE ###
+    ###########################
 
-    # Run problem, generate solution (stored in Solver), and output total run time.
-    total_run_time = problem_solver.generate()
 
     # Generates a problem details table which displays on the results tab in a dropdown
     # at the bottom. Returns a list of table rows that is added to the problem details table.
     problem_details_table = generate_problem_details_table(
         solver="Classical" if sampler_type is SamplerType.CLASSICAL else "Quantum Hybrid",
         time_limit=time_limit,
-        total_time=total_run_time,
-        variable_1=slider_value,
-        variable_2=dropdown_value,
     )
 
     return RunOptimizationReturn(
