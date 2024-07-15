@@ -99,11 +99,11 @@ def toggle_left_column(collapse_trigger: int, to_collapse_class: str) -> str:
     ],
 )
 def render_initial_state(slider_value: int) -> str:
-    """Runs on load and any time slider value is updated.
-        Add `prevent_initial_call=True` to skip on load run.
+    """Runs on load and any time the value of the slider is updated.
+        Add `prevent_initial_call=True` to skip on load runs.
 
     Args:
-        slider_value: The value of the slider example.
+        slider_value: The value of the slider.
 
     Returns:
         str: The content of the input tab.
@@ -116,11 +116,11 @@ class RunOptimizationReturn(NamedTuple):
     sampler_type: str = dash.no_update
     results: str = dash.no_update
     problem_details_table: list = dash.no_update
-    # Add more return variables here. Return variables for callback functions
-    # with many return variables should be returned as a NamedTuple for clarity.
+    # Add more return variables here. Return values for callback functions
+    # with many variables should be returned as a NamedTuple for clarity.
 
 @app.callback(
-    # This list of outputs must align with `RunOptimizationReturn`.
+    # The Outputs below must align with `RunOptimizationReturn`.
     Output("sampler-type", "data"),
     Output("results", "children"),
     Output("problem-details", "children"),
@@ -148,7 +148,7 @@ class RunOptimizationReturn(NamedTuple):
 def run_optimization(
     # The parameters below must match the `Input` and `State` variables found
     # in the `inputs` list above.
-    run_click: int,  # Number of times the `run-button` has been clicked.
+    run_click: int,
     sampler_type: Union[SamplerType, int],
     time_limit: float,
     slider_value: int,
@@ -158,19 +158,20 @@ def run_optimization(
 ) -> RunOptimizationReturn:
     """Runs the optimization and updates UI accordingly.
 
-    This is the main optimization function which is called when the `Run Optimization` button is
-    clicked. The function takes all form value inputs and runs the optimization, updates the run/cancel
-    buttons, animates (and deactivates) the results tab, and updates all relevant HTML entries.
+    This is the main function which is called when the `Run Optimization` button is clicked.
+    This function takes in all form values and runs the optimization, updates the run/cancel
+    buttons, deactivates (and reactivates) the results tab, and updates all relevant HTML
+    components.
 
     Args:
         run_click: The (total) number of times the run button has been clicked.
         sampler_type: Either Quantum Hybrid (``0`` or ``SamplerType.HYBRID``),
             or Classical (``1`` or ``SamplerType.CLASSICAL``).
         time_limit: The solver time limit.
-        slider_value: The value of the slider example.
-        dropdown_value: The value of the dropdown example.
-        checklist_value: The value of the checklist example.
-        radio_value: The value of the radio example.
+        slider_value: The value of the slider.
+        dropdown_value: The value of the dropdown.
+        checklist_value: A list of the values of the checklist.
+        radio_value: The value of the radio.
 
     Returns:
         A NamedTuple (RunOptimizationReturn) containing all outputs to be used when updating the HTML
@@ -178,7 +179,7 @@ def run_optimization(
 
             sampler-type: The sampler used (``"quantum"`` or ``"classical"``).
             results: The results to display in the results tab.
-            problem-details: List of table rows for problem details.
+            problem-details: List of the table rows for the problem details table.
     """
 
     # Only run optimization code if this function was triggered by a click on `run-button`.
@@ -205,8 +206,7 @@ def run_optimization(
     ###########################
 
 
-    # Generates a problem details table which displays on the results tab in a dropdown
-    # at the bottom. Returns a list of table rows that is added to the problem details table.
+    # Generates a list of table rows for the problem details table.
     problem_details_table = generate_problem_details_table(
         solver="Classical" if sampler_type is SamplerType.CLASSICAL else "Quantum Hybrid",
         time_limit=time_limit,

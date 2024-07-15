@@ -1,7 +1,7 @@
 /* The CSS rules for the dcc.Slider element */
 
 .rc-slider-tooltip-inner {
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: var(--font);
 }
 
 .slider {

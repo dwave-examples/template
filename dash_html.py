@@ -34,16 +34,14 @@ from src.enums import SamplerType
 SAMPLER_TYPES = {SamplerType.HYBRID: "Quantum Hybrid", SamplerType.CLASSICAL: "Classical"}
 
 
-def description_card():
-    """A Div containing dashboard title & description."""
-    return html.Div(
-        className="description-card",
-        children=[html.H1(MAIN_HEADER), html.P(DESCRIPTION)],
-    )
-
-
 def slider(label: str, id: str, config: dict) -> html.Div:
-    """Slider element for value selection."""
+    """Slider element for value selection.
+
+    Args:
+        label: The title that goes above the slider.
+        id: A unique selector for this element.
+        config: A dictionary of slider configerations, see dcc.Slider docs.
+    """
     return html.Div(
         className="slider-wrapper",
         children=[
@@ -66,7 +64,13 @@ def slider(label: str, id: str, config: dict) -> html.Div:
 
 
 def dropdown(label: str, id: str, options: list) -> html.Div:
-    """Dropdown element for option selection."""
+    """Dropdown element for option selection.
+
+    Args:
+        label: The title that goes above the dropdown.
+        id: A unique selector for this element.
+        options: A list of dictionaries of labels and values.
+    """
     return html.Div(
         className="dropdown-wrapper",
         children=[
@@ -82,8 +86,16 @@ def dropdown(label: str, id: str, options: list) -> html.Div:
     )
 
 
-def checklist(label: str, id: str, options: list, value: list, inline: bool = True) -> html.Div:
-    """Checklist element for option selection."""
+def checklist(label: str, id: str, options: list, values: list, inline: bool = True) -> html.Div:
+    """Checklist element for option selection.
+
+    Args:
+        label: The title that goes above the checklist.
+        id: A unique selector for this element.
+        options: A list of dictionaries of labels and values.
+        values: A list of values that should be preselected in the checklist.
+        inline: Whether the options of the checklist are displayed beside or below each other.
+    """
     return html.Div(
         className="checklist-wrapper",
         children=[
@@ -93,14 +105,22 @@ def checklist(label: str, id: str, options: list, value: list, inline: bool = Tr
                 className=f"checklist{' checklist--inline' if inline else ''}",
                 inline=inline,
                 options=options,
-                value=value,
+                value=values,
             ),
         ],
     )
 
 
 def radio(label: str, id: str, options: list, value: int, inline: bool = True) -> html.Div:
-    """Radio element for option selection."""
+    """Radio element for option selection.
+
+    Args:
+        label: The title that goes above the radio.
+        id: A unique selector for this element.
+        options: A list of dictionaries of labels and values.
+        value: The value of the radio that should be preselected.
+        inline: Whether the options are displayed beside or below each other.
+    """
     return html.Div(
         className="radio-wrapper",
         children=[
@@ -123,10 +143,10 @@ def generate_options(options_list: list) -> list[dict]:
 
 def generate_control_card() -> html.Div:
     """This function generates the control card for the dashboard, which
-        contains the dropdowns for selecting the scenario, model, and solver.
+        contains the settings for selecting the scenario, model, and solver.
 
     Returns:
-        html.Div: A Div containing the dropdowns for selecting the scenario,
+        html.Div: A Div containing the settings for selecting the scenario,
             model, and solver.
     """
     dropdown_options = generate_options(DROPDOWN)
@@ -206,13 +226,12 @@ def generate_problem_details_table(solver: str, time_limit: int) -> list[html.Tr
         time_limit: The solver time limit.
 
     Returns:
-        list[html.Tr]: List of table rows for problem details.
+        list[html.Tr]: List of rows for the problem details table.
     """
 
     table_rows = (
         ("Solver:", solver, "Time Limit:", f"{time_limit}s"),
-        ### Add more problem specifics table rows here.
-        ### Each tuple is a row in the table.
+        ### Add more table rows here. Each tuple is a row in the table.
     )
 
     return [html.Tr([html.Td(cell) for cell in row]) for row in table_rows]
@@ -268,7 +287,7 @@ def problem_details(index: int) -> html.Div:
                                     )
                                 ]
                             ),
-                            # Dash callback will generate content in Tbody
+                            # A Dash callback function will generate content in Tbody
                             html.Tbody(id="problem-details")
                         ]
                     ),
@@ -305,7 +324,10 @@ def set_html(app):
                                     html.Div(
                                         className="left-column-layer-2",  # Padding and content wrapper
                                         children=[
-                                            description_card(),
+                                            html.Div(
+                                                className="description-card",
+                                                children=[html.H1(MAIN_HEADER), html.P(DESCRIPTION)],
+                                            ),
                                             generate_control_card(),
                                         ]
                                     )
@@ -333,14 +355,14 @@ def set_html(app):
                                     dcc.Tab(
                                         label="Input",
                                         id="input-tab",
-                                        value="input-tab",  # used for switching to programatically
+                                        value="input-tab",  # used for switching tabs programatically
                                         className="tab",
                                         children=[
                                             dcc.Loading(
                                                 parent_className="input",
                                                 type="circle",
                                                 color=THEME_COLOR_SECONDARY,
-                                                # Dash callback (in app.py) will generate content in the Div below
+                                                # A Dash callback (in app.py) will generate content in the Div below
                                                 children=html.Div(id="input"),
                                             ),
                                         ],
@@ -358,7 +380,7 @@ def set_html(app):
                                                         parent_className="results",
                                                         type="circle",
                                                         color=THEME_COLOR_SECONDARY,
-                                                        # Dash callback (in app.py) will generate content in the Div below
+                                                        # A Dash callback (in app.py) will generate content in the Div below
                                                         children=html.Div(id="results"),
                                                     ),
                                                     # Problem details dropdown

@@ -4,11 +4,11 @@ body {
     background-color: #f9f9f9;
     color: var(--grey-dark);
     font-size: 1.4rem;
-    margin: 0rem;
+    margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6, td, th, span, a, p, label, button, input {
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: var(--font);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,7 +17,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 3.4rem;
+}
+
+h2 {
+    font-size: 2.8rem;
 }
 
 h3 {
@@ -134,7 +138,7 @@ input[type="radio"] {
 }
 
 .Select {
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: var(--font);
 }
 
 .radio label,
