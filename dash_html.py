@@ -35,7 +35,7 @@ SAMPLER_TYPES = {SamplerType.HYBRID: "Quantum Hybrid", SamplerType.CLASSICAL: "C
 
 
 def description_card():
-    """A Div containing dashboard title & descriptions."""
+    """A Div containing dashboard title & description."""
     return html.Div(
         className="description-card",
         children=[html.H1(MAIN_HEADER), html.P(DESCRIPTION)],
@@ -66,7 +66,7 @@ def slider(label: str, id: str, config: dict) -> html.Div:
 
 
 def dropdown(label: str, id: str, options: list) -> html.Div:
-    """Slider element for value selection."""
+    """Dropdown element for option selection."""
     return html.Div(
         className="dropdown-wrapper",
         children=[
@@ -83,7 +83,7 @@ def dropdown(label: str, id: str, options: list) -> html.Div:
 
 
 def checklist(label: str, id: str, options: list, value: list, inline: bool = True) -> html.Div:
-    """Checklist element for value selection."""
+    """Checklist element for option selection."""
     return html.Div(
         className="checklist-wrapper",
         children=[
@@ -100,7 +100,7 @@ def checklist(label: str, id: str, options: list, value: list, inline: bool = Tr
 
 
 def radio(label: str, id: str, options: list, value: int, inline: bool = True) -> html.Div:
-    """Radio element for value selection."""
+    """Radio element for option selection."""
     return html.Div(
         className="radio-wrapper",
         children=[
@@ -116,32 +116,22 @@ def radio(label: str, id: str, options: list, value: int, inline: bool = True) -
     )
 
 
+def generate_options(options_list: list) -> list[dict]:
+    """Generates options for dropdowns, checklists, radios, etc."""
+    return [{"label": label, "value": i} for i, label in enumerate(options_list)]
+
+
 def generate_control_card() -> html.Div:
-    """
-    This function generates the control card for the dashboard, which
-    contains the dropdowns for selecting the scenario, model, and solver.
+    """This function generates the control card for the dashboard, which
+        contains the dropdowns for selecting the scenario, model, and solver.
 
     Returns:
         html.Div: A Div containing the dropdowns for selecting the scenario,
-        model, and solver.
+            model, and solver.
     """
-    # calculate dropdown options
-    dropdown_options = [
-        {"label": label, "value": i}
-        for i, label in enumerate(DROPDOWN)
-    ]
-
-    # calculate checklist options
-    checklist_options = [
-        {"label": label, "value": i}
-        for i, label in enumerate(CHECKLIST)
-    ]
-
-    # calculate radio options
-    radio_options = [
-        {"label": label, "value": i}
-        for i, label in enumerate(RADIO)
-    ]
+    dropdown_options = generate_options(DROPDOWN)
+    checklist_options = generate_options(CHECKLIST)
+    radio_options = generate_options(RADIO)
 
     sampler_options = [
         {"label": label, "value": sampler_type.value}
@@ -189,6 +179,7 @@ def generate_control_card() -> html.Div:
                     ),
                 ]
             ),
+            # Run and cancel buttons to run the optimization.
             html.Div(
                 id="button-group",
                 children=[
@@ -207,31 +198,21 @@ def generate_control_card() -> html.Div:
     )
 
 
-def generate_problem_details_table(
-    solver: str,
-    time_limit: int,
-    total_time: float,
-    variable_1: int, 
-    variable_2: int,
-) -> list[html.Tr]:
+def generate_problem_details_table(solver: str, time_limit: int) -> list[html.Tr]:
     """Generate the problem details table.
 
     Args:
         solver: The solver used for optimization.
         time_limit: The solver time limit.
-        total_time: The overall time to optimize the scenario.
-        variable_1: Variable 1.
-        variable_2: Variable 2.
 
     Returns:
         list[html.Tr]: List of table rows for problem details.
     """
 
     table_rows = (
-        ("Variable 1", variable_1, "Solver", solver),
-        ("Variable 2", variable_2, "Time Limit", f"{time_limit}s"),
-        ("Problem Size", variable_1 * variable_2, "Total Time", f"{round(total_time, 2)}s"),
-        ("Search Space", f"{variable_1**variable_2:.2e}"),
+        ("Solver:", solver, "Time Limit:", f"{time_limit}s"),
+        ### Add more problem specifics table rows here.
+        ### Each tuple is a row in the table.
     )
 
     return [html.Tr([html.Td(cell) for cell in row]) for row in table_rows]
@@ -242,6 +223,7 @@ def problem_details(index: int) -> html.Div:
 
     Args:
         index: Unique element id to differentiate matching elements.
+            Must be different from left column collapse button.
 
     Returns:
         html.Div: Div containing a collapsable table.
@@ -250,6 +232,7 @@ def problem_details(index: int) -> html.Div:
         id={"type": "to-collapse-class", "index": index},
         className="details-collapse-wrapper collapsed",
         children=[
+            # Problem details collapsible button and header
             html.Button(
                 id={"type": "collapse-trigger", "index": index},
                 className="details-collapse",
@@ -264,6 +247,7 @@ def problem_details(index: int) -> html.Div:
                     html.Table(
                         className="solution-stats-table",
                         children=[
+                            # Problem details table header (optional)
                             html.Thead(
                                 [
                                     html.Tr(
@@ -277,13 +261,14 @@ def problem_details(index: int) -> html.Div:
                                             html.Th(
                                                 colSpan=2,
                                                 children=[
-                                                    "Run Time Specifics"
+                                                    "Run Time"
                                                 ],
                                             ),
                                         ]
                                     )
                                 ]
                             ),
+                            # Dash callback will generate content in Tbody
                             html.Tbody(id="problem-details")
                         ]
                     ),
@@ -299,14 +284,10 @@ def set_html(app):
         id="app-container",
         children=[
             # Below are any temporary storage items, e.g., for sharing data between callbacks.
-            dcc.Store(id="sampler-type"),  # solver type used for latest run
-            dcc.Store(
-                id="reset-results"
-            ),  # whether to reset the results tables before displaying the latest run
-            dcc.Store(
+            dcc.Store(id="sampler-type"),  # Solver type used for latest run
+            dcc.Store(  # Callback blocker to signal that the run is complete
                 id="run-in-progress", data=False
-            ),  # callback blocker to signal that the run is complete
-            dcc.Store(id="parameter-hash"),  # hash string to detect changed parameters
+            ),
             # Header brand banner
             html.Div(className="banner", children=[html.Img(src=THUMBNAIL)]),
             # Settings and results columns
@@ -319,17 +300,18 @@ def set_html(app):
                         className="left-column",
                         children=[
                             html.Div(
-                                className="left-column-layer-1",
-                                children=[  # Fixed width Div to collapse
+                                className="left-column-layer-1",  # Fixed width Div to collapse
+                                children=[
                                     html.Div(
-                                        className="left-column-layer-2",
-                                        children=[  # Padding and content wrapper
+                                        className="left-column-layer-2",  # Padding and content wrapper
+                                        children=[
                                             description_card(),
                                             generate_control_card(),
                                         ]
                                     )
                                 ]
                             ),
+                            # Left column collapse button
                             html.Div(
                                 html.Button(
                                     id={"type": "collapse-trigger", "index": 0},
@@ -358,6 +340,7 @@ def set_html(app):
                                                 parent_className="input",
                                                 type="circle",
                                                 color=THEME_COLOR_SECONDARY,
+                                                # Dash callback (in app.py) will generate content in the Div below
                                                 children=html.Div(id="input"),
                                             ),
                                         ],
@@ -375,8 +358,10 @@ def set_html(app):
                                                         parent_className="results",
                                                         type="circle",
                                                         color=THEME_COLOR_SECONDARY,
+                                                        # Dash callback (in app.py) will generate content in the Div below
                                                         children=html.Div(id="results"),
                                                     ),
+                                                    # Problem details dropdown
                                                     html.Div(
                                                         [
                                                             html.Hr(),

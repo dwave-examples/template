@@ -1,4 +1,4 @@
-# Copyright [yyyy] [name of copyright owner]
+# Copyright 2024 D-Wave Systems Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ DEBUG = False
 THEME_COLOR = "#074C91"  # D-Wave dark blue default #074C91
 THEME_COLOR_SECONDARY = "#2A7DE1"  # D-Wave blue default #2A7DE1
 
-THUMBNAIL = "assets/dwave_logo.svg"
+THUMBNAIL = "static/dwave_logo.svg"
 
 APP_TITLE = "Demo Name"
 MAIN_HEADER = "Demo Name"
