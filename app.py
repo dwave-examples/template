@@ -38,8 +38,9 @@ background_callback_manager = DiskcacheManager(cache)
 # the `multiprocessing` library, but its fork, `multiprocess` still hasn't caught up.
 # (see docs: https://docs.python.org/3/library/multiprocessing.html#contexts-and-start-methods)
 import multiprocess
+
 if multiprocess.get_start_method(allow_none=True) is None:
-    multiprocess.set_start_method('spawn')
+    multiprocess.set_start_method("spawn")
 
 app = dash.Dash(
     __name__,
@@ -113,11 +114,13 @@ def render_initial_state(slider_value: int) -> str:
 
 class RunOptimizationReturn(NamedTuple):
     """Return type for the ``run_optimization`` callback function."""
+
     sampler_type: str = dash.no_update
     results: str = dash.no_update
     problem_details_table: list = dash.no_update
     # Add more return variables here. Return values for callback functions
     # with many variables should be returned as a NamedTuple for clarity.
+
 
 @app.callback(
     # The Outputs below must align with `RunOptimizationReturn`.
@@ -135,7 +138,8 @@ class RunOptimizationReturn(NamedTuple):
         State("radio", "value"),
     ],
     running=[
-        (Output("cancel-button", "className"), "", "display-none"),  # Shows cancel button while running.
+        # Shows cancel button while running.
+        (Output("cancel-button", "className"), "", "display-none"),
         (Output("run-button", "className"), "display-none", ""),  # Hides run button while running.
         (Output("results-tab", "disabled"), True, False),  # Disables results tab while running.
         (Output("results-tab", "label"), "Loading...", "Results"),
@@ -191,20 +195,19 @@ def run_optimization(
     if isinstance(sampler_type, int):
         sampler_type = SamplerType(sampler_type)
 
-    print(f"The form has the following values:\n\
+    print(
+        f"The form has the following values:\n\
         Example Slider: {slider_value}\n\
         Example Dropdown: {dropdown_value}\n\
         Example Checklist: {checklist_value}\n\
         Example Radio: {radio_value}\n\
         Solver: {sampler_type}\n\
-        Time Limit: {time_limit}\
-    ")
-
+        Time Limit: {time_limit}"
+    )
 
     ###########################
     ### YOUR CODE GOES HERE ###
     ###########################
-
 
     # Generates a list of table rows for the problem details table.
     problem_details_table = generate_problem_details_table(
@@ -213,8 +216,8 @@ def run_optimization(
     )
 
     return RunOptimizationReturn(
-        sampler_type = "classical" if sampler_type is SamplerType.CLASSICAL else "quantum",
-        results = "Put demo results here.",
+        sampler_type="classical" if sampler_type is SamplerType.CLASSICAL else "quantum",
+        results="Put demo results here.",
         problem_details_table=problem_details_table,
     )
 

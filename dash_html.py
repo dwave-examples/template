@@ -30,7 +30,6 @@ from app_configs import (
 )
 from src.enums import SamplerType
 
-
 SAMPLER_TYPES = {SamplerType.HYBRID: "Quantum Hybrid", SamplerType.CLASSICAL: "Classical"}
 
 
@@ -197,7 +196,7 @@ def generate_control_card() -> html.Div:
                         type="number",
                         **SOLVER_TIME,
                     ),
-                ]
+                ],
             ),
             # Run and cancel buttons to run the optimization.
             html.Div(
@@ -273,23 +272,19 @@ def problem_details(index: int) -> html.Div:
                                         [
                                             html.Th(
                                                 colSpan=2,
-                                                children=[
-                                                    "Problem Specifics"
-                                                ],
+                                                children=["Problem Specifics"],
                                             ),
                                             html.Th(
                                                 colSpan=2,
-                                                children=[
-                                                    "Run Time"
-                                                ],
+                                                children=["Run Time"],
                                             ),
                                         ]
                                     )
                                 ]
                             ),
                             # A Dash callback function will generate content in Tbody
-                            html.Tbody(id="problem-details")
-                        ]
+                            html.Tbody(id="problem-details"),
+                        ],
                     ),
                 ],
             ),
@@ -326,12 +321,15 @@ def set_html(app):
                                         children=[
                                             html.Div(
                                                 className="description-card",
-                                                children=[html.H1(MAIN_HEADER), html.P(DESCRIPTION)],
+                                                children=[
+                                                    html.H1(MAIN_HEADER),
+                                                    html.P(DESCRIPTION),
+                                                ],
                                             ),
                                             generate_control_card(),
-                                        ]
+                                        ],
                                     )
-                                ]
+                                ],
                             ),
                             # Left column collapse button
                             html.Div(
@@ -384,12 +382,7 @@ def set_html(app):
                                                         children=html.Div(id="results"),
                                                     ),
                                                     # Problem details dropdown
-                                                    html.Div(
-                                                        [
-                                                            html.Hr(),
-                                                            problem_details(1)
-                                                        ]
-                                                    ),
+                                                    html.Div([html.Hr(), problem_details(1)]),
                                                 ],
                                             )
                                         ],
