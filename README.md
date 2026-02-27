@@ -38,27 +38,35 @@ An example program output.
 
 ## Problem Description 
 
-Objectives to be optimized: the goals the process attempts to accomplish by minimizing or maximizing certain aspects of the problem to the extent possible; for example, a production-line optimization might attempt to minimize the time to produce all of the products.
+Objectives to be optimized: the goals the process attempts to accomplish by minimizing or maximizing
+certain aspects of the problem to the extent possible; for example, a production-line optimization
+might attempt to minimize the time to produce all of the products.
 
-Constraints: aspects of the problem and/or process, with limited or no flexibility, that must be satisfied for solutions to be considered feasible; for example, a production-line optimization might have a limitation that Machine A can only bend 10 parts per hour.
+Constraints: aspects of the problem and/or process, with limited or no flexibility, that must be
+satisfied for solutions to be considered feasible; for example, a production-line optimization might
+have a limitation that Machine A can only bend 10 parts per hour.
 
 ## Model Overview
-The clearer your model is presented here, the more useful it will be to others. For a strong example of this section, see [here](https://github.com/dwave-examples/3d-bin-packing#model-overview).
+The clearer your model is presented here, the more useful it will be to others. For a strong example
+of this section, see [here](https://github.com/dwave-examples/3d-bin-packing#model-overview).
 
 ### Parameters
 List and define the parameters used in your model.
 
 ### Variables
-List and define (including type: e.g., "binary" or "integer") the variables solved for in your model.
+List and define (including type: e.g., "binary" or "integer") the variables solved for in your
+model.
 
 ### Expressions
 List and define any combinations of variables used for easier representations of the models.
 
 ### Objective
-Mathematical formulation of the objective described in the previous section using the listed parameters, variables, etc.
+Mathematical formulation of the objective described in the previous section using the listed
+parameters, variables, etc.
 
 ### Constrains
-Mathematical formulation of the constraints described in the previous section using the listed parameters, variables, etc.
+Mathematical formulation of the constraints described in the previous section using the listed
+parameters, variables, etc.
 
 ## Code Overview
 
